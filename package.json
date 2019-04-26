@@ -2,9 +2,9 @@
   "name": "node_custom",
   "version": "1.0.0",
   "description": "RESTfull API",
-  "main": "app/bin/server.js",
+  "main": "app/www/index.js",
   "scripts": {
-    "start": "NODE_ENV=staging node app/bin/server.js",
+    "start": "NODE_ENV=staging node app/www/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

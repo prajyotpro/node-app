@@ -25,7 +25,7 @@ app.set('CONFIG', config);
 
 
 // ========================================== CONTROLLERS ==========================================
-var userRouter               = require('../routes/user');
+// var userRouter               = require('../routes/user');
 
 
 if (!sticky.listen(server, port)) {
@@ -56,7 +56,8 @@ if (!sticky.listen(server, port)) {
 
     // ========================================== ROUTES ==========================================
     // API V1.0 Routes
-    app.use(config.SERVER.API_PATH + 'v1/users', userRouter);
+    // app.use(config.SERVER.API_PATH + 'v1/users', userRouter);
+    var router     = require('../routes/')(app)
     
 
     // ========================================== SOCKET ==========================================

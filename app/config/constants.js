@@ -2,7 +2,7 @@ module.exports = {
     default: {
 
         SERVER      : {
-            PORT        : 3000,
+            PORT        : 3030,
         },
         SECURITY    : {
             SALT        : 'fCa_BRPu9r9UK-UP^w6rTUjL4IkoW0iT',
@@ -11,7 +11,7 @@ module.exports = {
     development: {
 
         SERVER      : {
-            PORT        : 3000,
+            PORT        : 3030,
         },
         SECURITY    : {
             SALT        : 'fCa_BRPu9r9UK-UP^w6rTUjL4IkoW0iT'
@@ -20,7 +20,7 @@ module.exports = {
     staging: {
 
         SERVER      : {
-            PORT        : 3000,
+            PORT        : 3030,
         },
         SECURITY    : {
             SALT        : 'fCa_BRPu9r9UK-UP^w6rTUjL4IkoW0iT'
@@ -29,7 +29,7 @@ module.exports = {
     production: {
       
         SERVER      : {
-            PORT        : 3000,
+            PORT        : 3030,
         },
         SECURITY    : {
             SALT        : 'fCa_BRPu9r9UK-UP^w6rTUjL4IkoW0iT'
