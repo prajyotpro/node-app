@@ -1,9 +1,77 @@
-const config 		= require('../config/app');
-const models		= require('../models');
-const jwt         	= require('jwt-simple');
-const bcrypt 		= require('bcrypt');
+const config 		= require('../config/')
+const models		= require('../models')
+const jwt         	= require('jwt-simple')
+const jsonwebtoken	= require('jsonwebtoken')
+const bcrypt 		= require('bcrypt')
 
 
+class Authenticator { 
+
+	constructor() {}
+
+	/*
+	Function to generate password 
+	@param passwordtext - password text
+	@param callback - callback function(error, result)
+	*/
+	generatePassword(passwordText, callback) {
+
+		if(typeof passwordText != 'string') {
+			return callback("Password text must be a string.")
+		}
+
+		bcrypt.hash(passwordText.trim(), config.server.salt_rounds, function(err, hash) {
+	  	
+		  	if (err) {
+		  		console.log(err);
+		  		return callback("Error generating password.", false)
+		  	}
+
+		  	return callback(false, hash)
+		})
+	}
+
+
+	/*
+	Function to validate password 
+	@param passwordtext - password text
+	@param passwordhash - password hash
+	@param callback - callback function(error, result)
+	*/
+	verifyPassword(passwordText, passwordHash, callback) {
+
+		if(typeof passwordText != 'string') {
+			return callback("Password text must be a string.")
+		}
+
+		if(typeof passwordHash != 'string') {
+			return callback("Password hash must be a string.")
+		}
+
+		bcrypt.compare(passwordText.trim(), passwordHash.trim(), callback)
+	}
+
+
+	/*
+	Function to generate JWT token
+	@param payload - payload object
+	@param callback - callback function(error, result)
+	*/
+	generateToken(payload, callback) {
+
+		if(typeof payload != 'object') {
+			return callback('Invalid payload, must be object.')
+		}
+
+
+	}
+
+}
+
+module.exports = new Authenticator()
+
+
+/*
 const Authenticator = function() {};
 
 
@@ -37,42 +105,6 @@ Authenticator.prototype.authenticate = function(req, res, next) {
 	});
 };
 
-
-Authenticator.prototype.generatePassword = function(passwordText, callback) { 
-	
-	bcrypt.hash(passwordText.trim(), config.SECURITY.SALT_ROUNDS, function(err, hash) {
-	  	
-	  	if (err) {
-	  		console.log(err);
-	  		return callback("Error generating password.", false);
-	  	}
-
-	  	return callback(false, hash);
-	});
-};
-
-
-Authenticator.prototype.comparePassword = function(comparisionObject, callback) { 
-
-	if (typeof comparisionObject != 'object') {
-		return callback('Invalid input', false);
-	}
-
-	if (comparisionObject.password == undefined) {
-		return callback('Invalid input', false);
-	}
-
-	if (comparisionObject.hash == undefined) {
-		return callback('Invalid input', false);
-	}
-
-	bcrypt.compare(comparisionObject.password.trim(), 
-		comparisionObject.hash.trim(), 
-		function(err, res) {
-	    
-	    return callback(err, res);
-	});
-};
 
 
 Authenticator.prototype.generateToken = function(userInfo, callback) {
@@ -124,3 +156,5 @@ var getUserIdFromDecodedToken = function (decodedToken) {
 	var parted = decodedToken.split('_');
 	return parted[0];
 }
+
+*/

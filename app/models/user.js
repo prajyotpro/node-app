@@ -1,5 +1,5 @@
 const models 	= require('../models');
-const config 	= require('../config/app');
+const config 	= require('../config/');
 const validator	= require('../lib/validator');
 const async 	= require('async');
 const authenticator = require('../lib/authenticator');
@@ -56,7 +56,9 @@ module.exports 	= function (sequelize, DataTypes) {
 		'status': {
 			type: DataTypes.INTEGER,
 			defaultValue: '1'
-		}
+		},
+		createdAt: {type: DataTypes.DATE, field: 'created_at'},
+  		updatedAt: {type: DataTypes.DATE, field: 'updated_at'},
 	};
 
 	const user = sequelize.define('user', tableDefination);

@@ -1,5 +1,5 @@
 const Controller 	= require('../core/controller');
-const Config 		= require('../config/app');
+const Config 		= require('../config/');
 const async 		= require('async');
 const authenticator = require('../lib/authenticator');
 

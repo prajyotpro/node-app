@@ -1,5 +1,5 @@
 const models 	= require('../models');
-const config 	= require('../config/app');
+const config 	= require('../config/');
 const validator	= require('../lib/validator');
 const async 	= require('async');
 
