@@ -1,5 +1,4 @@
 const models 	= require('../models');
-const config 	= require('../config/');
 const validator	= require('../lib/validator');
 const async 	= require('async');
 const authenticator = require('../lib/authenticator');
@@ -103,7 +102,7 @@ module.exports 	= function (sequelize, DataTypes) {
 		user.findAll({
 			where: {
 				email: email.trim(),
-				status: config.ACTIVE
+				status: 1
 			}
 		})
 		.then(function(result) {

@@ -1,5 +1,4 @@
 const Controller 	= require('../core/controller')
-const Config 		= require('../config/')
 const async 		= require('async')
 
 // Models

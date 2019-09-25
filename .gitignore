@@ -58,5 +58,5 @@ typings/
 .env
 
 # configuration files
-app/config/database.js
-app/config/server.js
+config/default.json
+config/local.json

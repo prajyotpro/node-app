@@ -1,0 +1,21 @@
+{
+	"app": {
+		"database": {
+			"dialect": "",
+			"host": "",
+			"port":"",
+			"database": "",
+			"username": "",
+			"password": "",
+			"logging": false
+		},
+		"server": {
+			"path": "",
+			"port": ""
+		},
+		"security": {
+			"salt": "",
+			"salt_rounds": 10
+		}
+	}
+}

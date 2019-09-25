@@ -1,10 +1,11 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var nodemon = require('gulp-nodemon');
-var watch = require('gulp-watch');
-var fs = require('fs');
-var path = require('path');
-var yaml = require('gulp-yaml');
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const nodemon = require('gulp-nodemon');
+const watch = require('gulp-watch');
+const fs = require('fs');
+const path = require('path');
+const yaml = require('gulp-yaml');
+const swaggerGenerator = require('gulp-apidoc-swagger');
 
 gulp.task('nodeMon', function () {
 	gutil.log(gutil.colors.yellow('=> Firing up node server + nodemon ...'));
@@ -13,6 +14,13 @@ gulp.task('nodeMon', function () {
 		ext: 'js',
 		env: { 'NODE_ENV': 'local' }
 	})
+});
+
+gulp.task('swaggerGenerator', function(){
+	swaggerGenerator.exec({
+		src: "app/routes",
+		dest: "doc/"
+	});
 });
 
 

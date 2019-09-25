@@ -1,18 +1,20 @@
 var cluster     = require('cluster') // Only required if you want the worker id
 var sticky      = require('sticky-session')
-var config      = require('../config/')
 var models      = require('../models')
+const config    = require('config')
+const serverConfig = config.get('app.server');
 
 
 var http        = require('http')
 var app         = module.exports = require('express')()
+const express   = require('express')
 
 
 var server      = require('http').createServer(app)
 var io          = require('socket.io')(server)
 
 
-var port        = process.env.PORT || config.server.port
+var port        = process.env.PORT || serverConfig.port
 
 
 var bodyParser  = require('body-parser')
@@ -20,6 +22,9 @@ var helmet      = require('helmet')
 var path        = require('path')
 var multer      = require('multer')
 var multipart   = require('connect-multiparty')
+
+const swaggerUi = require('swagger-ui-express')
+const swaggerDocument = require('../../doc/swagger.json')
 
 
 if (!sticky.listen(server, port)) {
@@ -50,6 +55,9 @@ if (!sticky.listen(server, port)) {
 
     // ========================================== ROUTES ==========================================
     var router     = require('../routes/')(app)
+
+    // ========================================== PUBLIC ==========================================
+    app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
     
 
     // ========================================== SOCKET ==========================================

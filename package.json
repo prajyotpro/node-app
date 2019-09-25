@@ -24,8 +24,10 @@
     "app-module-path": "^2.2.0",
     "async": "^2.4.1",
     "base64-img": "^1.0.3",
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
+    "config": "^3.2.2",
     "connect-multiparty": "^2.0.0",
     "easyimage": "^2.1.0",
     "emoji-datasource": "^3.0.0",
@@ -60,10 +62,12 @@
     "socketio-sticky-session": "^0.4.2",
     "sticky-cluster": "^0.3.1",
     "sticky-session": "^1.1.2",
+    "swagger-ui-express": "^4.1.1",
     "underscore": "^1.8.3",
     "validator": "^7.2.0"
   },
   "devDependencies": {
+    "gulp-apidoc-swagger": "^0.2.2",
     "gulp-watch": "^4.3.11",
     "gulp-yaml": "^1.0.1",
     "mocha": "^6.2.0"

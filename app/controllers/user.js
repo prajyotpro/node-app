@@ -1,5 +1,4 @@
 const Controller 	= require('../core/controller');
-const Config 		= require('../config/');
 const async 		= require('async');
 const authenticator = require('../lib/authenticator');
 
@@ -29,11 +28,11 @@ User.prototype.createUser = function(req, res) {
 	], function (err, result) {
 	    
 		if (err) {
-			return res.status(Config.CODES.BAD_REQUEST).send(err);
+			return res.status(403).send(err);
 		}
 
 		delete result.password;
-		return res.status(Config.CODES.CREATED).send(result);
+		return res.status(201).send(result);
 	});
 };
 
@@ -64,11 +63,11 @@ User.prototype.signIn = function(req, res) {
 	], function(err, result) {
 
 		if (err) {
-			return res.status(Config.CODES.BAD_REQUEST).send(err);
+			return res.status(403).send(err);
 		}
 
 		delete result.password;
-		return res.status(Config.CODES.SUCCESS).send(result);		
+		return res.status(200).send(result);		
 	});
 };
 

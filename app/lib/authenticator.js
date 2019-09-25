@@ -1,8 +1,10 @@
-const config 		= require('../config/')
 const models		= require('../models')
 const jwt         	= require('jwt-simple')
 const jsonwebtoken	= require('jsonwebtoken')
 const bcrypt 		= require('bcrypt')
+
+const config    	= require('config')
+const securityConfig = config.get('app.security')
 
 
 class Authenticator { 
@@ -20,7 +22,7 @@ class Authenticator {
 			return callback("Password text must be a string.")
 		}
 
-		bcrypt.hash(passwordText.trim(), config.server.salt_rounds, function(err, hash) {
+		bcrypt.hash(passwordText.trim(), securityConfig.salt_rounds, function(err, hash) {
 	  	
 		  	if (err) {
 		  		console.log(err);
