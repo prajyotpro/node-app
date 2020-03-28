@@ -1,8 +1,7 @@
 var cluster     = require('cluster') // Only required if you want the worker id
 var sticky      = require('sticky-session')
-var models      = require('../models')
 const config    = require('config')
-const serverConfig = config.get('app.server');
+const serverConfig = config.get('server');
 
 
 var http        = require('http')
@@ -32,10 +31,7 @@ if (!sticky.listen(server, port)) {
     // Master code
     server.once('listening', function () {
 
-        models.sequelize.sync().then(function () {
-
-            console.log("Listening to port " + port + "..")
-        })
+        console.log("Listening to port " + port + "..")
     })
 
 } else {

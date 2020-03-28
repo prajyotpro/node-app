@@ -1,15 +1,16 @@
 {
-  "name": "node_custom",
+  "name": "node-app",
   "version": "1.0.0",
-  "description": "RESTfull API",
-  "main": "app/www/index.js",
+  "description": "Node application to build anything and everything.",
+  "main": "app/www/",
   "scripts": {
-    "start": "NODE_ENV=staging node app/www/index.js",
+    "start": "node app/www/",
+    "dev": "nodemon app/www/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prajyotpro/node_custom.git"
+    "url": "git+https://github.com/prajyotpro/node-app.git"
   },
   "keywords": [
     "Joon"
@@ -17,9 +18,9 @@
   "author": "Prajyot Khandeparkar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/prajyotpro/node_custom/issues"
+    "url": "https://github.com/prajyotpro/node-app/issues"
   },
-  "homepage": "https://github.com/prajyotpro/node_custom#readme",
+  "homepage": "https://github.com/prajyotpro/node-app#readme",
   "dependencies": {
     "app-module-path": "^2.2.0",
     "async": "^2.4.1",
@@ -27,7 +28,7 @@
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
-    "config": "^3.2.2",
+    "config": "^3.3.1",
     "connect-multiparty": "^2.0.0",
     "easyimage": "^2.1.0",
     "emoji-datasource": "^3.0.0",
@@ -70,6 +71,7 @@
     "gulp-apidoc-swagger": "^0.2.2",
     "gulp-watch": "^4.3.11",
     "gulp-yaml": "^1.0.1",
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "nodemon": "^2.0.2"
   }
 }

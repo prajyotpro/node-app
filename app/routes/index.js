@@ -3,7 +3,7 @@ const fs 	= require('fs');
 module.exports = function(app) {
 
 	app.get("/", function(req, res) {
-		return res.send("Welcome to muffin api services.");
+		return res.send("Welcome to muffin app.");
 	});
 
 	return fs.readdir('./app/routes/', function(err, files) {
@@ -18,6 +18,9 @@ module.exports = function(app) {
 				  	routerName[0] = "v1";
 				}
 
+				if(routerName[0] == "v1") {
+					return app.use("/" + routerName[1].toString() + "/", require("./" + originalRouterName[0]));
+				}
 				return app.use("/" + routerName[0] + "/" + routerName[1].toString() + "/", require("./" + originalRouterName[0]));
 			}
 		});
