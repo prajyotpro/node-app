@@ -11,12 +11,19 @@ class Success extends Response
     }
 
     setCount(count) {
-        this.count = isNaN(count) ? this.data.length : count;
+        this.count = isNaN(count) ? this.count : count;
     }
 
     getCount() {
         this.count = this.count === 0 ? this.data.length : this.count;
         return this.count;
+    }
+
+    get() {
+        return {
+            count: this.getCount(),
+            data: this.data
+        }
     }
 }
 

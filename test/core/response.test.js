@@ -51,6 +51,41 @@ describe('Success', function() {
         });
     });
 
+    describe('#responseData', function() {
+        it('should have properties count and data as per success response.', function() {
+            let response = new Success();
+            expect(response).to.have.property('count');
+            expect(response).to.have.property('data');
+        });
+    });
+
+    describe('#responseData', function() {
+        it('should have properties count and data as per success response input.', function() {
+            let response = new Success();
+            response.setData([1,2,3,4]);
+            expect(response).to.have.property('count');
+            expect(response).to.have.property('data');
+            
+            let actualResponse = response.get();
+            expect([1,2,3,4]).to.eql(actualResponse.data);
+            expect(4).to.eql(actualResponse.count);
+        });
+    });
+
+    describe('#responseData', function() {
+        it('should have properties count and data as per success response input [1,2,3,4], 10.', function() {
+            let response = new Success();
+            response.setData([1,2,3,4]);
+            response.setCount(10);
+            expect(response).to.have.property('count');
+            expect(response).to.have.property('data');
+            
+            let actualResponse = response.get();
+            expect([1,2,3,4]).to.eql(actualResponse.data);
+            expect(10).to.eql(actualResponse.count);
+        });
+    });
+
     describe('#statusCode(404)', function() {
         it('should return 404 when status code is set to 404', function() {
             let error = new Error();
