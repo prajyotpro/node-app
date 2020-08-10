@@ -1,4 +1,4 @@
-var Response = require('./responseFactory');
+var Response = require('./response-factory');
 
 /** 
  * 

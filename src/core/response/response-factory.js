@@ -20,6 +20,10 @@ class Response
     setData(data) {
         this.data = data;
     }
+
+    get() {
+        return this.data;
+    }
 }
 
 module.exports = Response;

@@ -1,4 +1,4 @@
-var Response = require('./responseFactory');
+var Response = require('./response-factory');
 
 /** 
  * 
@@ -21,7 +21,7 @@ class Success extends Response
 
     get() {
         return {
-            count: this.getCount(),
+            count: this.count,
             data: this.data
         }
     }
